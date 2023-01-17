@@ -15,6 +15,17 @@ export default class Deck {
         return this.cards.length
     }
 
+    //return top card from deck using shift
+
+    pop(){
+        return this.cards.shift();
+      };
+      
+    //add cards to bottom of deck
+    push(card) {
+        this.cards.push(card);
+      }
+
     shuffle() {
 
         //used for loop to count backwards from end of deck
@@ -26,6 +37,9 @@ export default class Deck {
             this.cards[i] = oldIndex
                  };
             };
+
+
+
         };
 
 

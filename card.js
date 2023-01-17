@@ -36,8 +36,8 @@ get color() {
 //check whether suit is spade or diamond ?
 //get color returns white if card is spade or diamond, other symbols will be black
 
-    return this.suit === '♠' || this.suit === '♦' ? 'white' : 'black'
-}
+    return this.suit === '♠' || this.suit === '♦' ? 'white' : 'black';
+};
 
 
 //this function creates a new HTML element for the cards created by the script
@@ -45,7 +45,7 @@ get color() {
 
     //created constant 'cardDiv' and declared equal to new div element using .createElement 
         const cardDiv = document.createElement('div')
-        
+
         //target inner text w/ suit type of card
         cardDiv.innerText = this.suit
 
@@ -56,5 +56,7 @@ get color() {
         cardDiv.dataset.value = `${this.value} ${this.suit}`
 
         return cardDiv
-    }
-}
+    };
+    
+
+};
