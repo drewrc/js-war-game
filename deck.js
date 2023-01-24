@@ -22,6 +22,6 @@ export default function Deck() {
   }
 }
 
-console.log(suit.length)
+
 
 console.log(new Deck ())

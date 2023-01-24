@@ -27,6 +27,7 @@
   }
 
   .gamearea {
+    text-align: center;
     border: 3px solid #45406e;
     background-color: rgb(95, 0, 0);
     display: inline-block;
@@ -38,6 +39,24 @@
     justify-content: center;
     align-items: center;
     margin: auto;
+  }
+
+  button { 
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 150px;
+    height: 80px;
+    background-color: #a2a5fa;
+    border-color: #0d053f;
+    color:#0d053f;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background-color: #6640d7;
+    cursor: pointer;
   }
 
   .cardarea {
@@ -59,6 +78,10 @@
   }
   
   #card {
+    position: relative;
+    padding-right: 30px;
+    bottom: 240px;
+    left: 300px;
     margin: auto;
     background-image: radial-gradient(#ded8f0 80%, #45406e );
     border: 1px solid black;
@@ -74,6 +97,7 @@
 
   .player-one-deck {
     position: absolute;
+    left: 300px;
     background-image: radial-gradient(#441fb3 80%, #0d053f );
     height: 250px;
     width: 125px;
@@ -88,6 +112,7 @@
   }
   .player-two-deck {
     position: relative;
+    left: 75px;
     background-image: radial-gradient(#a71414 80%, #250206 );
     height: 250px;
     width: 125px;
