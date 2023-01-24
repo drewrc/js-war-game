@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-
-        <metacharset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="main.css">
-
-        <title>War Game</title>
-
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS War Game</title>
+    <link rel="stylesheet" href="main.css">
+</head>
 <body>
+    <section class="gamearea">
+    <div class="game-title"> <h1>War Game</h1> </div>
+         <button class="startgame">Start</button>
+        <button class="draw">Draw Cards</button>
 
-    <div class="game-title">War Game</div>
+        <section class="cardsarea">
 
-    <div class="player-one-deck deck"></div>
-    <div class="player-one-card-slot card-slot"></div>
- 
+        <div class="player-one-deck" id="deck"></div>
+        <div class="player-two-deck" id="deck"></div>
 
-    <div class="text">War Game</div>
+        <div class="player-one-card drawcard" id="card-"></div>
+    <div class="player-two-card drawcard" id="card"></div>
 
-    <div class="player-two-deck deck"></div>
-    <div class="player-two-card-slot card-slot"></div>
-    
-
-
-
+</section>
+</section>
     <script src="game.js" type="module"></script>
 </body>
-
 </html>

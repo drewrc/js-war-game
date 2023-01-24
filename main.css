@@ -3,46 +3,54 @@
   }
   
   body {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 4rem);
-    grid-template-rows: 7rem 2rem 7rem;
-    gap: .5rem;
-    cursor: pointer;
-    justify-content: center;
-    padding-top: 1rem;
-    background: plum;
-  }
-  
-  .deck {
-    height: 100%;
     width: 100%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    border-radius: .5rem;
-    color: white;
-    user-select: none;
-  }
-  
-  .player-one-card {
-    background-color: slateblue;
-  }
-  
-  .player-one-deck {
-    background-color: slateblue;
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    display: inline-block;
+    padding-top: 1rem;
+    background: linear-gradient(150deg, #ff5f5f, #000000);
   }
 
-  .player-two-card {
-    background-color: blueviolet;
+  h1 {
+    width: 100%;
+    letter-spacing: 2px;
+    font-size: xx-large;
+    font-style: italic;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(12, 0, 93);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: auto;
+    color:rgb(203, 34, 34);
   }
-  
-  .player-two-deck {
-    background-color: blueviolet;
+
+  .gamearea {
+    border: 3px solid #45406e;
+    background-color: rgb(95, 0, 0);
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
-  
+
+  .cardarea {
+    width: 500px;
+    height: 500px;
+  }
+ 
+  #start {
+    margin: auto;
+    padding: 20px;
+    width: 60%;
+  }
+
   .text {
     grid-column: span 2;
     display: flex;
@@ -50,17 +58,62 @@
     align-items: center;
   }
   
-  .card {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  #card {
+    margin: auto;
+    background-image: radial-gradient(#ded8f0 80%, #45406e );
     border: 1px solid black;
-    border-radius: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
+    font-size: 3rem;
+    border-radius: .3rem;
+    color: rgb(169, 56, 56);
   }
+
+  .drawcard {
+    height: 250px;
+    width: 125px;
+  }
+
+  .player-one-deck {
+    position: absolute;
+    background-image: radial-gradient(#441fb3 80%, #0d053f );
+    height: 250px;
+    width: 125px;
+    border: 1px solid black;
+    display: inline-block;
+    font-size: 3rem;
+    border-radius: .3rem;
+    color: rgb(169, 56, 56);
+    user-select: none;
+    display: inline-block;
+    margin: auto;
+  }
+  .player-two-deck {
+    position: relative;
+    background-image: radial-gradient(#a71414 80%, #250206 );
+    height: 250px;
+    width: 125px;
+    border: 1px solid black;
+    font-size: 3rem;
+    border-radius: .3rem;
+    color: rgb(169, 56, 56);
+    user-select: none;
+    margin: auto;
+  }
+
+/* allows second to float right*/
+#card:nth-child(even) {
+  /*can use even or odd*/
+  float: left; 
+
+}
+
+/* prvents from stacking on left*/
+.box:not(:nth-child(even)) {
+  /* could have said "odd" or not(:nth-...())
+
+  /*no floats on either side OR left or right */ 
+  clear: left;
+  
+}
   
   .card.red {
     color: red;
@@ -70,23 +123,9 @@
     color: black;
   }
   
-  .card::before,
-  .card::after {
-    position: absolute;
-    content: attr(data-value);
-    font-size: 1rem;
-  }
+
   
-  .card::before {
-    top: .5rem;
-    left: .5rem
-  }
-  
-  .card::after {
-    bottom: .5rem;
-    right: .5rem;
-    transform: rotate(180deg);
-  } 
+
 
 
 

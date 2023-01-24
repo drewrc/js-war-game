@@ -1,18 +1,8 @@
 //player constants to be exported below--->
 
-export const playerOneCardSlot = document.querySelector(".player-one-card-slot");
-export const playerTwoCardSlot = document.querySelector('.player-two-card-slot');
-
-export const playerOneDeckElement = document.querySelector('.player-one-deck');
-export const playerTwoDeckElement = document.querySelector('.player-two-deck');
-
-//export const text = document.querySelector(".text");
-
-//below will be constructor function for player
-//export default class Player {
-//constructor()
-
-
-//}
+export default function Player({ name } = {}) { //empty brackets -> "destructuring" name off object that gets passed in
+    this.name = name;               //if no object gets passed in, empty object bc name undefined - by default use empty obj- will not error 
+    this.hand = {};
+    }
 
 

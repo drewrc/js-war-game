@@ -1,58 +1,27 @@
-//imported variables/functions
-import {SUITS, VALUES} from "./card.js"
-import Card from "./card.js"
-
+import { suit, value } from "./card.js";
+import Card from "./card.js";
 
 //deck constructor function to be exported to ./game.js
-export default class Deck {
-    //set cards = freshdeck function for a deck/array of 52 cards
-    constructor(cards = freshDeck()) { 
-        this.cards = cards
-    }   
+export default function Deck() {
 
-// using a 'getter' statement to return object property of card length aka card #
-    get deckCount() {
-        return this.cards.length
+
+  //this. is referring to the object that "new Deck" would create
+  //cards = empty array
+  this.cards = [];
+    // let i = suit;
+    // let j = value;
+
+  //nested for loop
+  for (let i = 0; i < suit.length; i++) {
+    // i could = suit, j could = value
+    for (let j = 0; j < value.length; j++) {
+      //this.cards.push pushes a card each time loop runs into cards array
+      this.cards.push(new Card({ suit: suit[i], value: value[j] })); //this would create a new card each time the loop runs
+      //deck is created
     }
+  }
+}
 
-    //return top card from deck using shift
+console.log(suit.length)
 
-    pop(){
-        return this.cards.shift();
-      };
-      
-    //add cards to bottom of deck
-    push(card) {
-        this.cards.push(card);
-      }
-
-    shuffle() {
-
-        //used for loop to count backwards from end of deck
-       for (let i = this.deckCount - 1; i > 0; i--) {
-        
-            const newIndex = Math.floor(Math.random() * (i + 1));
-            const oldIndex = this.cards[newIndex];
-            this.cards[newIndex] = this.cards[i];
-            this.cards[i] = oldIndex
-                 };
-            };
-
-
-
-        };
-
-
-
-
-function freshDeck() {
-    //.flatmap() condenses multiple arrays into one arrray 
-    return SUITS.flatMap(suit => {
-        //.map() returns new array of suit + value
-        return VALUES.map(value => {
-            return new Card(suit, value);
-        });
-    });
-};
-
-
+console.log(new Deck ())
