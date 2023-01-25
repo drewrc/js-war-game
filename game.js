@@ -69,14 +69,18 @@ Game.prototype.compare = function () {
     this.player1.hand = [...this.player1.hand, ...this.pot];
     //then empty pot ->
     this.pot = [];
+
     displayPlayer1Wins();
-    console.log(alert("Player 1 Winner!"));
+
+    //console.log(alert("Player 1 Winner!"));
     //console.log(this.player1.hand)
   } else if (this.pot[0].value < this.pot[1].value) {
     this.player2.hand = [...this.player2.hand, ...this.pot];
     this.pot = [];
-    displayPlayer2Wins()
-    console.log(alert("Player 2 Winner!"));
+
+    displayPlayer2Wins();
+
+    //console.log(alert("Player 2 Winner!"));
     // console.log(this.player2.hand)
   } else {
     //code for simple version of game -> tie
@@ -89,7 +93,12 @@ Game.prototype.compare = function () {
       ...this.player2.hand.splice(0, 3),
       ...this.pot,
     ];
-    console.log(alert("war!!"));
+    
+    console.log(this.pot.length)
+    console.log(this.pot[0].value, this.pot[0].suit, this.pot[1].value, this.pot[2].value, this.pot[3].value, this.pot[4].value, this.pot[5].value, this.pot[6].value, this.pot[7].value)
+    console.log("war!!");
+
+    displayWar();
     //console.log(this.player2.hand)
     // console.log(this.player1.hand)
     //six cards are added to the pot
@@ -119,14 +128,18 @@ Game.prototype.draw = function () {
   //call compare() at end to compare after pressing draw button
   this.compare();
 
+
+  console.log(this.player1.hand.length, this.player2.hand.length);
+
+  const player1score = document.querySelector(".player-1-score")
+  player1score.innerText = this.player1.hand.length;
+
   
+  const player2score = document.querySelector(".player-2-score")
+  player2score.innerText = this.player2.hand.length;
 
 
-    
-  
 
-
-  console.log(this.player1.hand, this.player2.hand);
 };
 
 
@@ -167,6 +180,7 @@ function getPlayer1Score() {
 
 const player1RoundWinner = document.querySelector(".player-1-round-winner")
 const player2RoundWinner = document.querySelector(".player-2-round-winner")
+const playWar = document.querySelector(".player-tie")
 const player1GameWinner = document.querySelector(".player-1-game-winner")
 const player2GameWinner = document.querySelector(".player-2-game-winner")
 
@@ -197,6 +211,13 @@ function displayPlayer2Wins() {
   player1RoundWinner.style.display = "none";
 }
 
+function displayWar() {
+  playWar.style.display = "block";
+  player2RoundWinner.style.display = "none";
+  player1RoundWinner.style.display = "none";
+
+}
+
 function player1WinsGame() {
   player1GameWinner.style.display = "block";
   player2GameWinner.style.display = "none";
@@ -206,6 +227,7 @@ function player2WinsGame() {
   player2GameWinner.style.display = "block";
   player1GameWinner.style.display = "none";
 }
+
 
 
 

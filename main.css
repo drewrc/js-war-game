@@ -52,8 +52,6 @@
      gap: 10px;
   }
 
-
-
   .game-winner-loser {
     color:#3a1cbf;
     display: grid;
@@ -119,4 +117,11 @@
   }
   .score{
     padding: 10px;
+  }
+
+  .player-tie {
+    display: none;
+    font-size: 30px;
+    color:#ff0000;
+    letter-spacing: 2px;
   }
