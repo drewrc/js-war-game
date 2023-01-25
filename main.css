@@ -9,7 +9,7 @@
     margin: 0;
     display: inline-block;
     padding-top: 1rem;
-    background: linear-gradient(150deg, #ff5f5f, #000000);
+    background-color: #ffd5d5;
   }
 
   h1 {
@@ -26,32 +26,17 @@
     color:rgb(203, 34, 34);
   }
 
-  .gamearea {
-    text-align: center;
-    border: 3px solid #45406e;
-    background-color: rgb(95, 0, 0);
-    display: inline-block;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
+
 
   button { 
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    width: 150px;
-    height: 80px;
     background-color: #a2a5fa;
     border-color: #0d053f;
     color:#0d053f;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
+    height: 50%;
+
   }
 
   button:hover {
@@ -59,98 +44,79 @@
     cursor: pointer;
   }
 
-  .cardarea {
-    width: 500px;
-    height: 500px;
+  .game-container {
+   
+     display: grid;
+     grid-template-columns: repeat(12, 1fr);
+     grid-template-rows: repeat(12, 1fr);
+     gap: 10px;
   }
- 
-  #start {
-    margin: auto;
+
+
+
+  .game-winner-loser {
+    color:#3a1cbf;
+    display: grid;
+    grid-column-start: 8;
+    grid-row-start: 1;
+  }
+
+
+  .round-winner-loser {
+  color:#bf1c1c;
+  display: grid;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  }
+
+  .player-2-side {
+    text-align: center;
+    color: rgb(238, 234, 249);
+    display: grid;
+    grid-column-start: 7;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    background-color: #bf1c1c;
     padding: 20px;
-    width: 60%;
   }
 
-  .text {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #card {
-    position: relative;
-    padding-right: 30px;
-    bottom: 240px;
-    left: 300px;
-    margin: auto;
-    background-image: radial-gradient(#ded8f0 80%, #45406e );
-    border: 1px solid black;
-    font-size: 3rem;
-    border-radius: .3rem;
-    color: rgb(169, 56, 56);
+  .player-1-side {
+    text-align: center;
+    color: rgb(249, 218, 218);
+    letter-spacing: 1px;
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    background-color: #4000ff;
+    padding: 20px;
   }
 
-  .drawcard {
-    height: 250px;
-    width: 125px;
+.card {
+
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin-left: 120px;
+    margin-right: 120px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 2px;
   }
 
-  .player-one-deck {
-    position: absolute;
-    left: 300px;
-    background-image: radial-gradient(#441fb3 80%, #0d053f );
-    height: 250px;
-    width: 125px;
-    border: 1px solid black;
-    display: inline-block;
-    font-size: 3rem;
-    border-radius: .3rem;
-    color: rgb(169, 56, 56);
-    user-select: none;
-    display: inline-block;
-    margin: auto;
+  .player-1-round-winner {
+    display: none;
   }
-  .player-two-deck {
-    position: relative;
-    left: 75px;
-    background-image: radial-gradient(#a71414 80%, #250206 );
-    height: 250px;
-    width: 125px;
-    border: 1px solid black;
-    font-size: 3rem;
-    border-radius: .3rem;
-    color: rgb(169, 56, 56);
-    user-select: none;
-    margin: auto;
+  .player-2-round-winner {
+    display: none;
   }
-
-/* allows second to float right*/
-#card:nth-child(even) {
-  /*can use even or odd*/
-  float: left; 
-
-}
-
-/* prvents from stacking on left*/
-.box:not(:nth-child(even)) {
-  /* could have said "odd" or not(:nth-...())
-
-  /*no floats on either side OR left or right */ 
-  clear: left;
-  
-}
-  
-  .card.red {
-    color: red;
+  .player-1-game-winner {
+    display: none;
   }
-  
-  .card.black {
-    color: black;
+  .player-2-game-winner {
+    display: none;
   }
-  
-
-  
-
-
-
-
+  .score{
+    padding: 10px;
+  }

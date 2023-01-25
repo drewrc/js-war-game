@@ -69,11 +69,13 @@ Game.prototype.compare = function () {
     this.player1.hand = [...this.player1.hand, ...this.pot];
     //then empty pot ->
     this.pot = [];
+    displayPlayer1Wins();
     console.log(alert("Player 1 Winner!"));
     //console.log(this.player1.hand)
   } else if (this.pot[0].value < this.pot[1].value) {
     this.player2.hand = [...this.player2.hand, ...this.pot];
     this.pot = [];
+    displayPlayer2Wins()
     console.log(alert("Player 2 Winner!"));
     // console.log(this.player2.hand)
   } else {
@@ -100,23 +102,45 @@ Game.prototype.draw = function () {
 
   const player1Card = this.player1.hand.shift(); //shift() removes first card of array
   console.log(player1Card);
+
+  const player1suitvalue = document.querySelector(".player-1-card")
+  player1suitvalue.innerText = [player1Card.value, player1Card.suit]
+  
+
   const player2Card = this.player2.hand.shift();
-  console.log(player2Card);
+  console.log([player2Card.value, player2Card.suit]);
+
+  const player2suitvalue = document.querySelector(".player-2-card")
+  player2suitvalue.innerText = [player2Card.value, player2Card.suit]
+  
+ 
   //using shift() adds p1 and p2 cards (2) to the pot
   this.pot = [player1Card, player2Card, ...this.pot];
   //call compare() at end to compare after pressing draw button
   this.compare();
+
+  
+
+
+    
+  
+
+
   console.log(this.player1.hand, this.player2.hand);
 };
+
+
 
 Game.prototype.end = function () {
   if (this.player1.hand.length >= 1 && this.player2.hand.length >= 1) {
     this.draw();
-    console.log(game.draw())
+    //console.log(game.draw())
   } else if (this.player1.hand === 0) {
-    alert("Player 2 Wins Game");
+    //alert("Player 2 Wins Game");
+    player2WinsGame();
   } else if (this.player2.hand === 0) {
-    alert("Player 1 Wins Game");
+    //alert("Player 1 Wins Game");
+    player1WinsGame();
   }
  };
 
@@ -133,8 +157,58 @@ Game.prototype.round = function () {
 
 
 
+
+function getPlayer1Score() {
+  
+
+}
+
+
+
+const player1RoundWinner = document.querySelector(".player-1-round-winner")
+const player2RoundWinner = document.querySelector(".player-2-round-winner")
+const player1GameWinner = document.querySelector(".player-1-game-winner")
+const player2GameWinner = document.querySelector(".player-2-game-winner")
+
+
+const player1SuitValue = document.querySelector(".player-1-card ") 
+const player2SuitValue = document.querySelector(".player-2-card ") 
+
+
 const startGame = document.querySelector(".startgame");
 const newRound = document.querySelector(".draw");
+
+
+function getPlayer1SuitValue () {
+  
+}
+
+function getPlayer2SuiteValue () {
+  
+}
+
+function displayPlayer1Wins() {
+  player1RoundWinner.style.display = "block";
+  player2RoundWinner.style.display = "none";
+}
+
+function displayPlayer2Wins() {
+  player2RoundWinner.style.display = "block";
+  player1RoundWinner.style.display = "none";
+}
+
+function player1WinsGame() {
+  player1GameWinner.style.display = "block";
+  player2GameWinner.style.display = "none";
+}
+
+function player2WinsGame() {
+  player2GameWinner.style.display = "block";
+  player1GameWinner.style.display = "none";
+}
+
+
+
 
 startGame.addEventListener("click", function () {
   game.play();
