@@ -93,7 +93,58 @@ Game.prototype.compare = function () {
       ...this.player2.hand.splice(0, 3),
       ...this.pot,
     ];
-    
+
+
+
+
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //need function to create a new element for each card added to POT
+
+    //first card for each could be TARGETED like CARD INNER TEXT was TARGETED in 
+    // DRAW PROTOTYPE ON LINES 129-130 and 136-137 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+   //PLAYER 1 WAR CARDS
+    const potTwo = document.createElement("cardtwo");
+    potTwo.innerHTML = [this.pot[1].value, this.pot[1].suit];
+    document.getElementById("player-1-side").appendChild(potTwo);
+
+    const potThree = document.createElement("cardthree");
+    potThree.innerHTML = [this.pot[2].value, this.pot[2].suit];
+    document.getElementById("player-1-side").appendChild(potThree);
+
+    const potFour = document.createElement("cardfour");
+    potFour.innerHTML = [this.pot[3].value, this.pot[3].suit];
+    document.getElementById("player-1-side").appendChild(potFour);
+
+    //PLAYER 2 WAR CARDS
+    const potSix = document.createElement("cardsix");
+    potSix.innerHTML = [this.pot[5].value, this.pot[5].suit];
+    document.getElementById("player-2-side").appendChild(potSix);
+
+    const potSeven = document.createElement("cardseven");
+    potSeven.innerHTML = [this.pot[6].value, this.pot[6].suit];
+    document.getElementById("player-2-side").appendChild(potSeven);
+
+    const potEight = document.createElement("cardeight");
+    potEight.innerHTML = [this.pot[7].value, this.pot[7].suit];
+    document.getElementById("player-2-side").appendChild(potEight);
+
+
+
+
+
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
     console.log(this.pot.length)
     console.log(this.pot[0].value, this.pot[0].suit, this.pot[1].value, this.pot[2].value, this.pot[3].value, this.pot[4].value, this.pot[5].value, this.pot[6].value, this.pot[7].value)
     console.log("war!!");
@@ -130,6 +181,7 @@ Game.prototype.draw = function () {
 
 
   console.log(this.player1.hand.length, this.player2.hand.length);
+
 
   const player1score = document.querySelector(".player-1-score")
   player1score.innerText = this.player1.hand.length;
@@ -202,11 +254,13 @@ function getPlayer2SuiteValue () {
 }
 
 function displayPlayer1Wins() {
+  playWar.style.display = "none";
   player1RoundWinner.style.display = "block";
   player2RoundWinner.style.display = "none";
 }
 
 function displayPlayer2Wins() {
+  playWar.style.display = "none";
   player2RoundWinner.style.display = "block";
   player1RoundWinner.style.display = "none";
 }
