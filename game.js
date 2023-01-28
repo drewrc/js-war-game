@@ -56,6 +56,7 @@ Game.prototype.deal = function () {
   this.player2.hand = this.deck.cards.filter(function (card, index) {
     return index % 2;
   });
+
   console.log(this.player2.hand);
   //you can add an object to create card count or use cardCount = .hand.length
   //this.player1.hand = 26;
@@ -94,59 +95,70 @@ Game.prototype.compare = function () {
       ...this.pot,
     ];
 
-
-
-
-
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //need function to create a new element for each card added to POT
 
-    //first card for each could be TARGETED like CARD INNER TEXT was TARGETED in 
+    //first card for each could be TARGETED like CARD INNER TEXT was TARGETED in
     // DRAW PROTOTYPE ON LINES 129-130 and 136-137 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   
-   //PLAYER 1 WAR CARDS
-    const potTwo = document.createElement("cardtwo");
+
+    //PLAYER 1 WAR CARDS
+
+    //const playerOnePot = document.createElement("div");
+    //playerOnePot.className = "card player-1-pot";
+    //playerOnePot.innerHTML = `${[this.pot[1].value, this.pot[1].suit], [this.pot[2].value, this.pot[2].suit], [this.pot[3].value, this.pot[3].suit]}`
+    //document.getElementById("player-1-side").appendChild(playerOnePot)
+    // console.log(playerOnePot)
+
+    const potTwo = document.createElement("div");
+    potTwo.className = "card player-pot";
     potTwo.innerHTML = [this.pot[1].value, this.pot[1].suit];
     document.getElementById("player-1-side").appendChild(potTwo);
+    console.log(potTwo);
 
-    const potThree = document.createElement("cardthree");
+    const potThree = document.createElement("div");
+    potThree.className = "card player-pot";
     potThree.innerHTML = [this.pot[2].value, this.pot[2].suit];
     document.getElementById("player-1-side").appendChild(potThree);
 
-    const potFour = document.createElement("cardfour");
+    const potFour = document.createElement("div");
+    potFour.className = "card player-pot";
     potFour.innerHTML = [this.pot[3].value, this.pot[3].suit];
     document.getElementById("player-1-side").appendChild(potFour);
 
     //PLAYER 2 WAR CARDS
-    const potSix = document.createElement("cardsix");
+    const potSix = document.createElement("div");
+    potSix.className = "card player-pot";
     potSix.innerHTML = [this.pot[5].value, this.pot[5].suit];
     document.getElementById("player-2-side").appendChild(potSix);
 
-    const potSeven = document.createElement("cardseven");
+    const potSeven = document.createElement("div");
+    potSeven.className = "card player-pot";
     potSeven.innerHTML = [this.pot[6].value, this.pot[6].suit];
     document.getElementById("player-2-side").appendChild(potSeven);
 
-    const potEight = document.createElement("cardeight");
+    const potEight = document.createElement("div");
+    potEight.className = "card player-pot";
     potEight.innerHTML = [this.pot[7].value, this.pot[7].suit];
     document.getElementById("player-2-side").appendChild(potEight);
 
-
-
-
-
-
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-
-
-
-    console.log(this.pot.length)
-    console.log(this.pot[0].value, this.pot[0].suit, this.pot[1].value, this.pot[2].value, this.pot[3].value, this.pot[4].value, this.pot[5].value, this.pot[6].value, this.pot[7].value)
+    console.log(this.pot.length);
+    console.log(
+      this.pot[0].value,
+      this.pot[0].suit,
+      this.pot[1].value,
+      this.pot[2].value,
+      this.pot[3].value,
+      this.pot[4].value,
+      this.pot[5].value,
+      this.pot[6].value,
+      this.pot[7].value
+    );
     console.log("war!!");
 
     displayWar();
@@ -163,35 +175,31 @@ Game.prototype.draw = function () {
   const player1Card = this.player1.hand.shift(); //shift() removes first card of array
   console.log(player1Card);
 
-  const player1suitvalue = document.querySelector(".player-1-card")
-  player1suitvalue.innerText = [player1Card.value, player1Card.suit]
-  
+  const player1suitvalue = document.querySelector(".player-1-card");
+  player1suitvalue.innerText = [player1Card.value, player1Card.suit];
 
   const player2Card = this.player2.hand.shift();
   console.log([player2Card.value, player2Card.suit]);
 
-  const player2suitvalue = document.querySelector(".player-2-card")
-  player2suitvalue.innerText = [player2Card.value, player2Card.suit]
-  
- 
+  const player2suitvalue = document.querySelector(".player-2-card");
+  player2suitvalue.innerText = [player2Card.value, player2Card.suit];
+
   //using shift() adds p1 and p2 cards (2) to the pot
   this.pot = [player1Card, player2Card, ...this.pot];
   //call compare() at end to compare after pressing draw button
   this.compare();
 
-
   console.log(this.player1.hand.length, this.player2.hand.length);
 
-
-  const player1score = document.querySelector(".player-1-score")
+  const player1score = document.querySelector(".player-1-score");
   player1score.innerText = this.player1.hand.length;
 
-  
-  const player2score = document.querySelector(".player-2-score")
+  const player2score = document.querySelector(".player-2-score");
   player2score.innerText = this.player2.hand.length;
 
-
-
+  const clearPot = document.querySelectorAll(".player-pot");
+  clearPot.remove();
+  console.log(clearPot);
 };
 
 
@@ -200,14 +208,16 @@ Game.prototype.end = function () {
   if (this.player1.hand.length >= 1 && this.player2.hand.length >= 1) {
     this.draw();
     //console.log(game.draw())
-  } else if (this.player1.hand === 0) {
-    //alert("Player 2 Wins Game");
+  } else if (this.player1.hand.length === 0) {
+    alert("Player 2 Wins Game");
+
     player2WinsGame();
-  } else if (this.player2.hand === 0) {
-    //alert("Player 1 Wins Game");
+  } else if (this.player2.hand.length === 0) {
+    alert("Player 1 Wins Game");
+
     player1WinsGame();
   }
- };
+};
 
 Game.prototype.play = function () {
   this.shuffle();
@@ -220,38 +230,15 @@ Game.prototype.round = function () {
   this.end();
 };
 
+const player1RoundWinner = document.querySelector(".player-1-round-winner");
+const player2RoundWinner = document.querySelector(".player-2-round-winner");
+const playWar = document.querySelector(".player-tie");
 
-
-
-function getPlayer1Score() {
-  
-
-}
-
-
-
-const player1RoundWinner = document.querySelector(".player-1-round-winner")
-const player2RoundWinner = document.querySelector(".player-2-round-winner")
-const playWar = document.querySelector(".player-tie")
-const player1GameWinner = document.querySelector(".player-1-game-winner")
-const player2GameWinner = document.querySelector(".player-2-game-winner")
-
-
-const player1SuitValue = document.querySelector(".player-1-card ") 
-const player2SuitValue = document.querySelector(".player-2-card ") 
-
+const player1SuitValue = document.querySelector(".player-1-card ");
+const player2SuitValue = document.querySelector(".player-2-card ");
 
 const startGame = document.querySelector(".startgame");
 const newRound = document.querySelector(".draw");
-
-
-function getPlayer1SuitValue () {
-  
-}
-
-function getPlayer2SuiteValue () {
-  
-}
 
 function displayPlayer1Wins() {
   playWar.style.display = "none";
@@ -269,22 +256,7 @@ function displayWar() {
   playWar.style.display = "block";
   player2RoundWinner.style.display = "none";
   player1RoundWinner.style.display = "none";
-
 }
-
-function player1WinsGame() {
-  player1GameWinner.style.display = "block";
-  player2GameWinner.style.display = "none";
-}
-
-function player2WinsGame() {
-  player2GameWinner.style.display = "block";
-  player1GameWinner.style.display = "none";
-}
-
-
-
-
 
 startGame.addEventListener("click", function () {
   game.play();
@@ -292,8 +264,22 @@ startGame.addEventListener("click", function () {
 
 newRound.addEventListener("click", function () {
   game.round();
-  console.log('click!')
+  console.log("click!");
 });
 
 //const game = new Game();
 //console.log(Game.play())
+
+function player1WinsGame() {
+   player1GameWinner.style.display = "block";
+    player2GameWinner.style.display = "none";
+  }
+  
+  function player2WinsGame() {
+  
+    player2GameWinner.style.display = "block";
+   player1GameWinner.style.display = "none";
+  }
+  
+  const player2GameWinner = document.querySelector(".player-2-game-winner")
+  const player1GameWinner = document.querySelector(".player-1-game-winner")

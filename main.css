@@ -69,7 +69,7 @@
 
   .player-2-side {
     text-align: center;
-    color: rgb(238, 234, 249);
+    color: rgb(167, 135, 255);
     display: grid;
     grid-column-start: 7;
     grid-column-end: 11;
@@ -81,7 +81,7 @@
 
   .player-1-side {
     text-align: center;
-    color: rgb(249, 218, 218);
+    color: rgb(254, 97, 97);
     letter-spacing: 1px;
     display: grid;
     grid-column-start: 3;
