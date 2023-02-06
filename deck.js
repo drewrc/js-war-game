@@ -23,6 +23,5 @@ export default function Deck() {
 }
 
 
-console.log(new Deck ())
 
 

@@ -18,7 +18,6 @@ function Game() {
 }
 
 const game = new Game();
-console.log(game.deck);
 
 Game.prototype.shuffle = function () {
   let i = this.deck.cards.length,
@@ -51,13 +50,12 @@ Game.prototype.deal = function () {
     return !(index % 2);
     //looks at remainder of an index/2 using %; returns either a remainder 0 or a 1
   });
-  console.log(this.player1.hand);
+
   //^ player 1 gets first, odd remander of 1, even remainder of 0
   this.player2.hand = this.deck.cards.filter(function (card, index) {
     return index % 2;
   });
 
-  console.log(this.player2.hand);
   //you can add an object to create card count or use cardCount = .hand.length
   //this.player1.hand = 26;
   //this.player2.hand = 26;
@@ -111,37 +109,37 @@ Game.prototype.compare = function () {
     //document.getElementById("player-1-side").appendChild(playerOnePot)
     // console.log(playerOnePot)
 
-    const potTwo = document.createElement("div");
-    potTwo.className = "card player-pot";
-    potTwo.innerHTML = [this.pot[1].value, this.pot[1].suit];
-    document.getElementById("player-1-side").appendChild(potTwo);
-    console.log(potTwo);
+    // const potTwo = document.createElement("div");
+    // potTwo.className = "card player-pot";
+    // potTwo.innerHTML = [this.pot[1].value, this.pot[1].suit];
+    // document.getElementById("player-1-side").appendChild(potTwo);
+    // console.log(potTwo);
 
-    const potThree = document.createElement("div");
-    potThree.className = "card player-pot";
-    potThree.innerHTML = [this.pot[2].value, this.pot[2].suit];
-    document.getElementById("player-1-side").appendChild(potThree);
+    // const potThree = document.createElement("div");
+    // potThree.className = "card player-pot";
+    // potThree.innerHTML = [this.pot[2].value, this.pot[2].suit];
+    // document.getElementById("player-1-side").appendChild(potThree);
 
-    const potFour = document.createElement("div");
-    potFour.className = "card player-pot";
-    potFour.innerHTML = [this.pot[3].value, this.pot[3].suit];
-    document.getElementById("player-1-side").appendChild(potFour);
+    // const potFour = document.createElement("div");
+    // potFour.className = "card player-pot";
+    // potFour.innerHTML = [this.pot[3].value, this.pot[3].suit];
+    // document.getElementById("player-1-side").appendChild(potFour);
 
-    //PLAYER 2 WAR CARDS
-    const potSix = document.createElement("div");
-    potSix.className = "card player-pot";
-    potSix.innerHTML = [this.pot[5].value, this.pot[5].suit];
-    document.getElementById("player-2-side").appendChild(potSix);
+    // //PLAYER 2 WAR CARDS
+    // const potSix = document.createElement("div");
+    // potSix.className = "card player-pot";
+    // potSix.innerHTML = [this.pot[5].value, this.pot[5].suit];
+    // document.getElementById("player-2-side").appendChild(potSix);
 
-    const potSeven = document.createElement("div");
-    potSeven.className = "card player-pot";
-    potSeven.innerHTML = [this.pot[6].value, this.pot[6].suit];
-    document.getElementById("player-2-side").appendChild(potSeven);
+    // const potSeven = document.createElement("div");
+    // potSeven.className = "card player-pot";
+    // potSeven.innerHTML = [this.pot[6].value, this.pot[6].suit];
+    // document.getElementById("player-2-side").appendChild(potSeven);
 
-    const potEight = document.createElement("div");
-    potEight.className = "card player-pot";
-    potEight.innerHTML = [this.pot[7].value, this.pot[7].suit];
-    document.getElementById("player-2-side").appendChild(potEight);
+    // const potEight = document.createElement("div");
+    // potEight.className = "card player-pot";
+    // potEight.innerHTML = [this.pot[7].value, this.pot[7].suit];
+    // document.getElementById("player-2-side").appendChild(potEight);
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -201,8 +199,6 @@ Game.prototype.draw = function () {
   clearPot.remove();
   console.log(clearPot);
 };
-
-
 
 Game.prototype.end = function () {
   if (this.player1.hand.length >= 1 && this.player2.hand.length >= 1) {
@@ -271,15 +267,14 @@ newRound.addEventListener("click", function () {
 //console.log(Game.play())
 
 function player1WinsGame() {
-   player1GameWinner.style.display = "block";
-    player2GameWinner.style.display = "none";
-  }
-  
-  function player2WinsGame() {
-  
-    player2GameWinner.style.display = "block";
-   player1GameWinner.style.display = "none";
-  }
-  
-  const player2GameWinner = document.querySelector(".player-2-game-winner")
-  const player1GameWinner = document.querySelector(".player-1-game-winner")
+  player1GameWinner.style.display = "block";
+  player2GameWinner.style.display = "none";
+}
+
+function player2WinsGame() {
+  player2GameWinner.style.display = "block";
+  player1GameWinner.style.display = "none";
+}
+
+const player2GameWinner = document.querySelector(".player-2-game-winner");
+const player1GameWinner = document.querySelector(".player-1-game-winner");
